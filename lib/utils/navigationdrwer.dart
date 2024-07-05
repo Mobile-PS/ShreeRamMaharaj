@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:maharaj/screen/Auth/login_screen.dart';
 import 'package:maharaj/screen/advertise_screen.dart';
 import 'package:maharaj/screen/audio_screen.dart';
 import 'package:maharaj/screen/contact_screen.dart';
@@ -45,12 +46,22 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 16), // Add some space between the image and text
-                Expanded(
-                  child: Text(
-                    'LOGIN',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
+                InkWell(
+                  onTap: (){
+                    Navigator.pop(context);
+                    Get.to(
+                      curve: Curves.easeInBack,
+                      transition: Transition.leftToRight,
+                          () => LoginScreen(),
+                    );
+                  },
+                  child: Expanded(
+                    child: Text(
+                      'LOGIN',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                      ),
                     ),
                   ),
                 ),

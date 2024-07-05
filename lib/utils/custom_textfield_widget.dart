@@ -73,7 +73,7 @@ class CustomTextFieldOutline extends StatelessWidget {
           //make hint text
           hintStyle: TextStyle(
             color: Colors.grey,
-            fontSize: 16,
+            fontSize: 14,
             fontFamily: "verdana_regular",
             fontWeight: FontWeight.w400,
           ),
@@ -83,7 +83,7 @@ class CustomTextFieldOutline extends StatelessWidget {
           //lable style
           labelStyle: TextStyle(
             color: Colors.grey,
-            fontSize: 16,
+            fontSize: 14,
             fontFamily: "verdana_regular",
             fontWeight: FontWeight.w400,
           ),

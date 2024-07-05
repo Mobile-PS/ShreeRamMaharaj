@@ -44,6 +44,11 @@ class FontTextStyle{
       fontWeight: FontWeight.normal,
       color: kgrey
   );
+  static TextStyle normalgreyText14 =TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: kgrey
+  );
   static TextStyle boldgreyText =TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.bold,
