@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:maharaj/screen/Auth/login_screen.dart';
+import 'package:maharaj/screen/Auth/profile_screen.dart';
 import 'package:maharaj/screen/advertise_screen.dart';
 import 'package:maharaj/screen/audio_screen.dart';
 import 'package:maharaj/screen/contact_screen.dart';
@@ -12,6 +13,7 @@ import 'package:maharaj/screen/maharaj_screen.dart';
 import 'package:maharaj/screen/previous_pooja_screen.dart';
 import 'package:maharaj/screen/samadhi_mandir_screen.dart';
 import 'package:maharaj/screen/sansta_info_screen.dart';
+import 'package:maharaj/screen/seva_karya_screen.dart';
 import 'package:maharaj/screen/video_screen.dart';
 import 'package:maharaj/screen/vilage_info_screen.dart';
 import 'package:maharaj/utils/colors.dart';
@@ -34,28 +36,38 @@ class CustomDrawer extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage('images/user.png'), // Replace with your image path
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 16), // Add some space between the image and text
                 InkWell(
-                  onTap: (){
+                  onTap:(){
                     Navigator.pop(context);
                     Get.to(
                       curve: Curves.easeInBack,
                       transition: Transition.leftToRight,
-                          () => LoginScreen(),
+                          () => ProfileScreen(),
                     );
-                  },
-                  child: Expanded(
+    },
+                  child: Container(
+                    width: 80,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('images/user.png'), // Replace with your image path
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 16), // Add some space between the image and text
+                Expanded(
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                      Get.to(
+                        curve: Curves.easeInBack,
+                        transition: Transition.leftToRight,
+                            () => LoginScreen(),
+                      );
+                    },
                     child: Text(
                       'LOGIN',
                       style: TextStyle(
@@ -124,7 +136,12 @@ class CustomDrawer extends StatelessWidget {
             title:  Text('सेवा कार्य',style: FontTextStyle.boldblackText,),
             onTap: () {
               Navigator.pop(context);
-            },
+
+              Get.to(
+                curve: Curves.easeInBack,
+                transition: Transition.leftToRight,
+                    () => SevaScreen(),
+              );            },
           ),
           ListTile(///DaindinSadhana.png
             leading:  Image.asset("images/DaindinSadhana.png",height: 24,width: 24,),

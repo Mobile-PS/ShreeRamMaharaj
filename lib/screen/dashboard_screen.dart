@@ -113,25 +113,22 @@ class _DashboardSreenState extends State<DashboardSreen> {
             ),
             Flex(direction: Axis.horizontal,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Expanded(
-                    flex: 3,
-                    child: Container(
-                      child: ElevatedButton(
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    child: ElevatedButton(
 
-                        onPressed: () {}, child: Text('सेवा कार्य',style: TextStyle(color: kWhite),),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(kOrange),
-                        //  shape: BorderRadius.all(Radius.circular(10))
-                        ),),
-                    ),
+                      onPressed: () {}, child: Text('सेवा कार्य',style: TextStyle(color: kWhite,fontSize: 12),),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(kOrange),
+                      //  shape: BorderRadius.all(Radius.circular(10))
+                      ),),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Expanded(
-                    flex: 3,
+                Expanded(
+                  flex: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       child: ElevatedButton(
 
@@ -142,14 +139,14 @@ class _DashboardSreenState extends State<DashboardSreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Expanded(
-                    flex: 3,
+                Expanded(
+                  flex: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       child: ElevatedButton(
 
-                        onPressed: () {}, child: Text('दैनंदिन साधना',style: TextStyle(color: kWhite),),
+                        onPressed: () {}, child: Text('दैनंदिन साधना',style: TextStyle(color: kWhite,fontSize: 12),),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(kOrange),
                         ),),

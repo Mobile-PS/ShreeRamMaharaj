@@ -14,3 +14,18 @@ class Dashboardimages{
 
   ];
 }
+class SevakaryGrid{
+  String images;
+  String name;
+
+  SevakaryGrid({required this.images,required this.name});
+
+  static List<SevakaryGrid>Img=[
+    SevakaryGrid(images: "images/Image.png", name: "सामाजिक कार्य"),
+    SevakaryGrid(images: "images/Image.png", name: "वैद्यकिय कार्य"),
+    SevakaryGrid(images: "images/Image.png", name:"अध्यात्मिक कार्य" ),
+    SevakaryGrid(images: "images/Image.png", name:"शैक्षणिक कार्य" ),
+    SevakaryGrid(images: "images/Image.png", name:"अन्य कार्य" ),
+
+  ];
+}

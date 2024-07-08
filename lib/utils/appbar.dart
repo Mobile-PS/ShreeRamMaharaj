@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:maharaj/utils/colors.dart';
 import 'package:maharaj/utils/styleclass.dart';
+
+import '../screen/notification_screen.dart';
+import 'custom_modelbottomsheet.dart';
 
 class customAppbar extends StatefulWidget implements PreferredSizeWidget {
   String? title;
@@ -33,10 +37,24 @@ class _customAppbarState extends State<customAppbar> {
         ],
       ),
       actions: [
-        Icon(Icons.notifications,color: kWhite,size: 25,),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Icon(Icons.translate,color: kWhite,size: 25,),
+        InkWell(
+          onTap: (){
+            Get.to(
+              curve: Curves.easeInBack,
+              transition: Transition.leftToRight,
+                  () => NotificationScreen(),
+            );
+            NotificationScreen();
+          },
+            child: Icon(Icons.notifications,color: kWhite,size: 25,)),
+        InkWell(
+          onTap: (){
+            LangaugeModelbottomsheet(context,setState);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.translate,color: kWhite,size: 25,),
+          ),
         ),
 
       ],

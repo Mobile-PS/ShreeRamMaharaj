@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:maharaj/screen/myaudio_screen.dart';
 import 'package:maharaj/utils/appbar.dart';
 import 'package:maharaj/utils/navigationdrwer.dart';
 import 'package:maharaj/utils/styleclass.dart';
@@ -90,36 +92,45 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
               itemBuilder: (context,index){
             return Padding(
               padding: const EdgeInsets.all(2.0),
-              child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: kgrey, width: 2),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: ListTile(
-                leading: Image.asset("images/profile.png",width: 48,height: 48,),
-                title:  Text("डमी मजकूर उपलब्ध आहे!",style: FontTextStyle.boldblackText14,),
-                subtitle: Text("डमी मजकूर उपलब्ध आहे!"),
-                trailing: SizedBox(
-                  width: 80,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    //direction: Axis.horizontal,
-                    children: [
-                      Container(child: InkWell(
-                        onTap: (){
-                          setState(() {
-                            isfav= index;
+              child: InkWell(
+                onTap: (){
+                  Get.to(
+                    curve: Curves.easeInBack,
+                    transition: Transition.leftToRight,
+                        () => MyAudioScreen(),
+                  );
+                },
+                child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: kgrey, width: 2),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: ListTile(
+                  leading: Image.asset("images/profile.png",width: 48,height: 48,),
+                  title:  Text("डमी मजकूर उपलब्ध आहे!",style: FontTextStyle.boldblackText14,),
+                  subtitle: Text("डमी मजकूर उपलब्ध आहे!"),
+                  trailing: SizedBox(
+                    width: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      //direction: Axis.horizontal,
+                      children: [
+                        Container(child: InkWell(
+                          onTap: (){
+                            setState(() {
+                              isfav= index;
 
-                          });
-                        },
-                          child: Icon(isfav==index?Icons.favorite_outlined:Icons.favorite_outlined,color: isfav==index?kRed:null,)),),
-                      Container(child: Icon(Icons.file_download_outlined),),
-                      Container(child: Icon(Icons.more_vert),)
-                    ],
+                            });
+                          },
+                            child: Icon(isfav==index?Icons.favorite_outlined:Icons.favorite_outlined,color: isfav==index?kRed:null,)),),
+                        Container(child: Icon(Icons.file_download_outlined),),
+                        Container(child: Icon(Icons.more_vert),)
+                      ],
 
+                    ),
                   ),
-                ),
-              )),
+                )),
+              ),
             );
           }),
         ],
