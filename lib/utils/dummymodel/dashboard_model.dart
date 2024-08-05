@@ -29,3 +29,18 @@ class SevakaryGrid{
 
   ];
 }
+class MandirGrid{
+  String images;
+  String name;
+
+  MandirGrid({required this.images,required this.name});
+
+  static List<MandirGrid>Img=[
+    MandirGrid(images: "images/Image.png", name: "महाराजानी स्थापन केलेली मंदिरे"),
+    MandirGrid(images: "images/Image.png", name: "महाराजानी स्थापन केलेली मंदिरे"),
+    MandirGrid(images: "images/Image.png", name: "महाराजानी स्थापन केलेली मंदिरे"),
+    MandirGrid(images: "images/Image.png", name: "महाराजानी स्थापन केलेली मंदिरे"),
+
+
+  ];
+}

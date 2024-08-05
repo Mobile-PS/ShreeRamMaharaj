@@ -10,6 +10,7 @@ import 'package:maharaj/screen/donation_screen.dart';
 import 'package:maharaj/screen/event_screen.dart';
 import 'package:maharaj/screen/galary_screen.dart';
 import 'package:maharaj/screen/maharaj_screen.dart';
+import 'package:maharaj/screen/notification_screen.dart';
 import 'package:maharaj/screen/previous_pooja_screen.dart';
 import 'package:maharaj/screen/samadhi_mandir_screen.dart';
 import 'package:maharaj/screen/sansta_info_screen.dart';
@@ -19,7 +20,10 @@ import 'package:maharaj/screen/vilage_info_screen.dart';
 import 'package:maharaj/utils/colors.dart';
 import 'package:maharaj/utils/styleclass.dart';
 
+import '../screen/app_updates_screen.dart';
 import '../screen/feedback_screen.dart';
+import '../screen/maharaj_mandir_screen.dart';
+import '../screen/sadhana_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   @override
@@ -147,7 +151,13 @@ class CustomDrawer extends StatelessWidget {
             leading:  Image.asset("images/DaindinSadhana.png",height: 24,width: 24,),
             title:  Text('दैनंदिन साधना',style: FontTextStyle.boldblackText,),
             onTap: () {
+
               Navigator.pop(context);
+
+              Get.to(
+                  curve: Curves.easeInBack,
+                  transition: Transition.leftToRight,
+              () => SadhanaScreen(),);
             },
           ),
           ListTile(
@@ -155,6 +165,11 @@ class CustomDrawer extends StatelessWidget {
             title:  Text(' महाराजानी स्थापन केलेली मंदिरे ',style: FontTextStyle.boldblackText,),
             onTap: () {
               Navigator.pop(context);
+
+              Get.to(
+                curve: Curves.easeInBack,
+                transition: Transition.leftToRight,
+                    () => MaharajMandirScreen(),);
             },
           ),
           ListTile(
@@ -276,6 +291,11 @@ class CustomDrawer extends StatelessWidget {
             title:  Text('सूचना',style: FontTextStyle.boldblackText,),
             onTap: () {
               Navigator.pop(context);
+              Get.to(
+                curve: Curves.easeInBack,
+                transition: Transition.leftToRight,
+                    () => NotificationScreen(),
+              );
             },
           ),  ListTile(
             leading:  Image.asset("images/contact.png",height: 24,width: 24,),
@@ -292,6 +312,31 @@ class CustomDrawer extends StatelessWidget {
             title:  Text('शेयर',style: FontTextStyle.boldblackText,),
             onTap: () {
               Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading:  Image.asset("images/app.png",height: 24,width: 24,),
+            title:  Text('ॲप सेटीन्ग्स',style: FontTextStyle.boldblackText,),
+            onTap: () {
+              Navigator.pop(context);
+              Get.to(
+                curve: Curves.easeInBack,
+                transition: Transition.leftToRight,
+                    () => AppUpdatesScreen(),
+              );
+            },
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading:  Image.asset("images/Logoout.png",height: 24,width: 24,),
+            title:  Text('लॉगआउट',style: FontTextStyle.boldblackText,),
+            onTap: () {
+              Navigator.pop(context);
+              Get.to(
+                curve: Curves.easeInBack,
+                transition: Transition.leftToRight,
+                    () => LoginScreen(),
+              );
             },
           ),
         ],

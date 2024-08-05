@@ -206,3 +206,26 @@ class ContactTabModel {
 
   ];
 }
+class maharajmandirTabModel {
+
+
+  final String    name;
+  maharajmandirTabModel({required this.name
+  });
+  static List<maharajmandirTabModel> Images = [
+
+
+
+    maharajmandirTabModel(
+        name: 'माहीति'),
+    maharajmandirTabModel(
+        name: 'काय पहाल'),
+    maharajmandirTabModel(
+        name: 'संपर्क'),
+
+
+
+
+
+  ];
+}

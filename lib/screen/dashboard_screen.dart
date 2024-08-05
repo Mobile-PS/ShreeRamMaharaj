@@ -3,12 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:maharaj/japa_screen.dart';
+import 'package:maharaj/screen/audio_screen.dart';
+import 'package:maharaj/screen/events_details_screen.dart';
+import 'package:maharaj/screen/video_screen.dart';
 import 'package:maharaj/utils/colors.dart';
 import 'package:maharaj/utils/dummymodel/dashboard_model.dart';
 import 'package:maharaj/utils/styleclass.dart';
 
 import '../utils/appbar.dart';
 import '../utils/navigationdrwer.dart';
+import 'advertise_screen.dart';
+import 'maharaj_screen.dart';
 
 class DashboardSreen extends StatefulWidget {
   const DashboardSreen({super.key});
@@ -87,27 +93,36 @@ class _DashboardSreenState extends State<DashboardSreen> {
                 itemCount: 2,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context,index){
-                return Card(
-                  child: Container(child:
-                  Row(children: [
-                    Image.asset("images/Japa.png",width: 100,height: 100,),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0,bottom: 10,right: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("श्रीराम महाराज संकल्प जप",style: FontTextStyle.boldblackText,),
-                          Text("Monday, 10-10-2022"),
-                          Spacer(),
-                          Container(
-                            width: 150,
-                              child: Text("पुढे पहा...",textAlign: TextAlign.end,style: TextStyle(color: kRed),)),
-                  
-                        ],
-                      ),
-                    )
-                  ],),),
+                return InkWell(
+                  onTap: (){
+                    Get.to(
+                      curve: Curves.easeInBack,
+                      transition: Transition.leftToRight,
+                          () => EventDetailsScreen(),
+                    );
+                  },
+                  child: Card(
+                    child: Container(child:
+                    Row(children: [
+                      Image.asset("images/Japa.png",width: 100,height: 100,),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0,bottom: 10,right: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("श्रीराम महाराज संकल्प जप",style: FontTextStyle.boldblackText,),
+                            Text("Monday, 10-10-2022"),
+                            Spacer(),
+                            Container(
+                              width: 150,
+                                child: Text("पुढे पहा...",textAlign: TextAlign.end,style: TextStyle(color: kRed),)),
+
+                          ],
+                        ),
+                      )
+                    ],),),
+                  ),
                 );
               }),
             ),
@@ -174,7 +189,46 @@ class _DashboardSreenState extends State<DashboardSreen> {
             border: Border.all(color: kWhite),
           ),
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              if(index==0){
+                Get.to(
+                  curve: Curves.easeInBack,
+                  transition: Transition.leftToRight,
+                      () => MaharajScreen(),
+                );
+              }
+              else if(index==1){
+                Get.to(
+                  curve: Curves.easeInBack,
+                  transition: Transition.leftToRight,
+                      () => AdrvertiseScreen(),
+                );
+              }
+              else if(index==2){
+                Get.to(
+                  curve: Curves.easeInBack,
+                  transition: Transition.leftToRight,
+                      () => JapaScreen(),
+                );
+              }
+              else if(index==3){
+                Get.to(
+                  curve: Curves.easeInBack,
+                  transition: Transition.leftToRight,
+                      () => AudioScreen(),
+                );
+              }
+              else if(index==4){
+                Get.to(
+                  curve: Curves.easeInBack,
+                  transition: Transition.leftToRight,
+                      () => VideoScreen(),
+                );
+              }
+              else if(index==5){
+
+              }
+            },
             child: Column(
               children: [
                 Padding(

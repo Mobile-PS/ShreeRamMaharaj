@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:maharaj/screen/VideoVieweScreen.dart';
+import 'package:maharaj/screen/video_player_screen.dart';
+import 'package:video_player/video_player.dart';
 
 import '../utils/appbar.dart';
 import '../utils/colors.dart';
@@ -16,11 +20,20 @@ class VideoScreen extends StatefulWidget {
 class _VideoScreenState extends State<VideoScreen>with SingleTickerProviderStateMixin {
   late TabController _tabController;
   List<AudioTabModel> tabs= AudioTabModel.Images;
+  VideoPlayerController _controller = VideoPlayerController.network(
+    'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+  );
 
   @override
   void initState() {
     super.initState();
+    _controller.initialize().then((_) {
+      setState(() {
+        _controller.play();
+      });
+    });
     _tabController = TabController(length: tabs.length, vsync: this);
+
   }
 
   @override
@@ -90,36 +103,50 @@ class _VideoScreenState extends State<VideoScreen>with SingleTickerProviderState
               itemBuilder: (context,index){
                 return Padding(
                   padding: const EdgeInsets.all(2.0),
-                  child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: kgrey, width: 2),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: ListTile(
-                        leading: Image.asset("images/profile.png",width: 48,height: 48,),
-                        title:  Text("डमी मजकूर उपलब्ध आहे!",style: FontTextStyle.boldblackText14,),
-                        subtitle: Text("डमी मजकूर उपलब्ध आहे!"),
-                        trailing: SizedBox(
-                          width: 80,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            //direction: Axis.horizontal,
-                            children: [
-                              Container(child: InkWell(
-                                  onTap: (){
-                                    setState(() {
-                                      isfav= index;
+                  child: InkWell(
+                    onTap: (){
+                  /*    Get.to(
+                        curve: Curves.easeInBack,
+                        transition: Transition.leftToRight,
+                            () =>
+                                VideoPlayerScreen(videoPlayerController: _controller, looping: true,),);*/
+                      Get.to(
+                        curve: Curves.easeInBack,
+                        transition: Transition.leftToRight,
+                            () => VideoViewerScreen(),);
+                    },
 
-                                    });
-                                  },
-                                  child: Icon(isfav==index?Icons.favorite_outlined:Icons.favorite_outlined,color: isfav==index?kRed:null,)),),
-                              Container(child: Icon(Icons.file_download_outlined),),
-                              Container(child: Icon(Icons.more_vert),)
-                            ],
-
-                          ),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: kgrey, width: 2),
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                      )),
+                        child: ListTile(
+                          leading: Image.asset("images/profile.png",width: 48,height: 48,),
+                          title:  Text("डमी मजकूर उपलब्ध आहे!",style: FontTextStyle.boldblackText14,),
+                          subtitle: Text("डमी मजकूर उपलब्ध आहे!"),
+                          trailing: SizedBox(
+                            width: 80,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              //direction: Axis.horizontal,
+                              children: [
+                                Container(child: InkWell(
+                                    onTap: (){
+                                      setState(() {
+                                        isfav= index;
+
+                                      });
+                                    },
+                                    child: Icon(isfav==index?Icons.favorite_outlined:Icons.favorite_outlined,color: isfav==index?kRed:null,)),),
+                                Container(child: Icon(Icons.file_download_outlined),),
+                                Container(child: Icon(Icons.more_vert),)
+                              ],
+
+                            ),
+                          ),
+                        )),
+                  ),
                 );
               }),
         ],
